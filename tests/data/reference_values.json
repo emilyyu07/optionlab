@@ -1,0 +1,38 @@
+{
+  "_readme": [
+    "Published reference prices used by the tests. Every value must come from a source you can cite.",
+    "Entries with status 'TODO' have null expected values and are skipped until you fill them in from a textbook.",
+    "'decimals' is how many decimal places the source prints; the test tolerance is half a unit in that place.",
+    "Inputs follow docs/conventions.md: rate and div_yield continuously compounded, vol and rates as decimals, expiry in years."
+  ],
+  "black_scholes": [
+    {
+      "id": "hull_bs_example",
+      "source": "Hull, Options, Futures, and Other Derivatives: worked Black-Scholes-Merton example (S=42, K=40, r=10%, sigma=20%, T=6 months). Example number differs by edition.",
+      "status": "verify against your edition",
+      "inputs": {"spot": 42.0, "strike": 40.0, "rate": 0.10, "vol": 0.20, "expiry_years": 0.5, "div_yield": 0.0},
+      "expected": {"call": 4.76, "put": 0.81},
+      "decimals": 2
+    },
+    {
+      "id": "TODO_bs_with_dividend_yield",
+      "source": "TODO: a textbook example with a non-zero continuous dividend yield (e.g. an index option example in Hull).",
+      "status": "TODO",
+      "inputs": {"spot": null, "strike": null, "rate": null, "vol": null, "expiry_years": null, "div_yield": null},
+      "expected": {"call": null, "put": null},
+      "decimals": null
+    }
+  ],
+  "binomial": [
+    {
+      "id": "TODO_american_put_tree",
+      "source": "TODO: a textbook American put binomial tree example (e.g. Hull's 'Numerical Procedures' chapter). Record the number of steps used.",
+      "status": "TODO",
+      "inputs": {"spot": null, "strike": null, "rate": null, "vol": null, "expiry_years": null, "div_yield": null},
+      "steps": null,
+      "style": "american",
+      "expected": {"put": null},
+      "decimals": null
+    }
+  ]
+}
